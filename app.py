@@ -61,12 +61,12 @@ class CSVChatbot:
             result = self.agent.run(CSV_PROMPT_PREFIX + message + CSV_PROMPT_SUFFIX)
             fig = plt.gcf()
             if fig.get_axes():
-                plt.clf()
                 buf = io.BytesIO()
                 fig.savefig(buf, format='png')
                 buf.seek(0)
                 img_str = base64.b64encode(buf.getvalue()).decode()
                 img_markdown = f"![plot](data:image/png;base64,{img_str})"
+                plt.clf()  # Clear the figure after saving to buffer
                 plt.close(fig)  # Close the figure to free up memory
                 return result + "\n\n" + img_markdown
             else:

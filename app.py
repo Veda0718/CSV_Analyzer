@@ -61,6 +61,7 @@ class CSVChatbot:
             result = self.agent.run(CSV_PROMPT_PREFIX + message + CSV_PROMPT_SUFFIX)
             fig = plt.gcf()
             if fig.get_axes():
+                plt.clf()
                 buf = io.BytesIO()
                 fig.savefig(buf, format='png')
                 buf.seek(0)

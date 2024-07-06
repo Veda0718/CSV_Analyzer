@@ -107,4 +107,4 @@ with gr.Blocks() as demo:
     )
     clear.click(clear_chat, None, chatbot, queue=False)
 
-demo.launch()
+demo.launch(debug=True)

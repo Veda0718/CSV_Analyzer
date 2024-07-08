@@ -22,13 +22,14 @@ class CSVChatbot:
         os.environ["OPENAI_API_KEY"] = api_key
 
         try:
-            model = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+            model = ChatOpenAI(model_name="gpt-4o", temperature=0)
             self.agent = create_csv_agent(
                 llm=model,
                 path=self.file_path,
                 verbose=True,
                 agent_type=AgentType.OPENAI_FUNCTIONS,
-                allow_dangerous_code=True
+                allow_dangerous_code=True,
+                agent_executor_kwargs=dict(handle_parsing_errors=True)
             )
             return "CSV file loaded and agent initialized successfully!"
         except Exception as e:

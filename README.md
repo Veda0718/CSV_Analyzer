@@ -1,4 +1,4 @@
-# Medical Chatbot
+# CSV Analysis Chatbot
 This repository contains a CSV Analysis Chatbot built using OpenAI's GPT-4o, LangChain Agent and Gradio. The chatbot can read CSV files, perform analysis, and generate plots using Matplotlib and Seaborn.
 
 ## Live Demo
